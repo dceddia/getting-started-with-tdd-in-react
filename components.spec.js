@@ -12,4 +12,9 @@ describe('BeerListContainer', () => {
       <BeerList/>
     ])).to.equal(true);
   });
+
+  it('should start with an empty list', () => {
+    const wrapper = shallow(<BeerListContainer/>);
+    expect(wrapper.state('beers')).to.eql([]);
+  });
 });
