@@ -32,17 +32,22 @@ export class InputArea extends Component {
       text: ''
     };
     this.setText = this.setText.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   setText(event) {
     this.setState({text: event.target.value});
   }
 
+  handleClick() {
+    this.props.onSubmit(this.state.text);
+  }
+
   render() {
     return (
       <div>
         <input value={this.state.text} onChange={this.setText}/>
-        <button>Add</button>
+        <button onClick={this.handleClick}>Add</button>
       </div>
     );
   }

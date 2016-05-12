@@ -1,5 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
+import { spy } from 'sinon';
 import { shallow, mount } from 'enzyme';
 import { BeerListContainer } from './components';
 import { InputArea, BeerList } from './components';
@@ -54,5 +55,15 @@ describe('InputArea', () => {
     input.simulate('change', {target: { value: 'Resin' }});
     expect(wrapper.state('text')).to.equal('Resin');
     expect(input.prop('value')).to.equal('Resin');
+  });
+
+  it('should call onSubmit when Add is clicked', () => {
+    const addItemSpy = spy();
+    const wrapper = shallow(<InputArea onSubmit={addItemSpy}/>);
+    wrapper.setState({text: 'Octoberfest'});
+    const addButton = wrapper.find('button');
+    addButton.simulate('click');
+    expect(addItemSpy.calledOnce).to.equal(true);
+    expect(addItemSpy.calledWith('Octoberfest')).to.equal(true);
   });
 });
