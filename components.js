@@ -6,6 +6,7 @@ export class BeerListContainer extends Component {
     this.state = {
       beers: []
     };
+    this.addItem = this.addItem.bind(this);
   }
 
   addItem(name) {
