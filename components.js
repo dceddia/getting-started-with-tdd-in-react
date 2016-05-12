@@ -19,7 +19,7 @@ export class BeerListContainer extends Component {
     return (
       <div>
         <InputArea onSubmit={this.addItem}/>
-        <BeerList/>
+        <BeerList items={this.state.beers}/>
       </div>
     );
   }
@@ -55,6 +55,13 @@ export class InputArea extends Component {
 
 export class BeerList extends Component {
   render() {
-    return <ul/>
+    return (
+      <ul>
+        {this.props.items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    );
   }
 }
+BeerList.defaultProps = { items: [] };
