@@ -6,9 +6,10 @@ Follow along with the tutorial for maximum benefit, and clone this repo to check
 
 To get started:
 
-* `npm install`
-* `npm install -g quik`
-* `npm install -g mocha`
+* Clone this repo.
+* Run `npm install`
+* Run `npm install -g quik`
+* Run `npm install -g mocha`
 
 Then:
 
