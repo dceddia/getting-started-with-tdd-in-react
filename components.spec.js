@@ -38,6 +38,13 @@ describe('BeerListContainer', () => {
     inputArea.prop('onSubmit')('Sam Adams');
     expect(wrapper.state('beers')).to.eql(['Sam Adams']);
   });
+
+  it('renders the items', () => {
+    const wrapper = mount(<BeerListContainer/>);
+    wrapper.instance().addItem('Sam Adams');
+    wrapper.instance().addItem('Resin');
+    expect(wrapper.find('li').length).to.equal(2);
+  });
 });
 
 describe('InputArea', () => {
